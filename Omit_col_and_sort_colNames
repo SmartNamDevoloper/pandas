@@ -1,0 +1,12 @@
+import pandas as pd
+
+df=pd.read_csv("https://media-doselect.s3.amazonaws.com/generic/X0kvr3wEYXRzONE5W37xWWYYA/test.csv")
+to_omit = ['PassengerId', 'Pclass', 'Name', 'Sex','Embarked']
+#write your code here
+pd.set_option('display.max_columns', 500)
+
+
+dd= df.loc[:,~df.columns.isin(to_omit)]
+
+
+df[sorted(dd)].head(5)
